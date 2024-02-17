@@ -25,7 +25,7 @@ def main():
     chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
 
     # Explicitly specify Chrome version to avoid issues in headless mode
-    chrome_version = "94.0.4606.71"  # Replace with the actual version of Chrome installed on your system
+    chrome_version = "121.0.6167.184"  # Replace with the actual version of Chrome installed on your system
 
     # Use chrome_version parameter with ChromeDriverManager
     driver = webdriver.Chrome(ChromeDriverManager(chrome_version=chrome_version).install(), options=chrome_options)
