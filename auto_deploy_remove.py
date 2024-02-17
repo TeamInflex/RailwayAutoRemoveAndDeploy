@@ -24,7 +24,10 @@ def main():
     chrome_options.add_argument("--headless")  # Run Chrome in headless mode (without GUI)
     chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
 
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+    # Explicitly specify Chrome version to avoid issues in headless mode
+    chrome_version = "94.0.4606.71"  # Replace with the actual version of Chrome installed on your system
+    driver = webdriver.Chrome(ChromeDriverManager(version=chrome_version).install(), options=chrome_options)
+
     driver.get("https://railway.app/login")
 
     while not confirmation_received:
