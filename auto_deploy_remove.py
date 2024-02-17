@@ -26,7 +26,9 @@ def main():
 
     # Explicitly specify Chrome version to avoid issues in headless mode
     chrome_version = "94.0.4606.71"  # Replace with the actual version of Chrome installed on your system
-    driver = webdriver.Chrome(ChromeDriverManager(version=chrome_version).install(), options=chrome_options)
+
+    # Use chrome_version parameter with ChromeDriverManager
+    driver = webdriver.Chrome(ChromeDriverManager(chrome_version=chrome_version).install(), options=chrome_options)
 
     driver.get("https://railway.app/login")
 
