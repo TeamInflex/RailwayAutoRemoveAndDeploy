@@ -1,6 +1,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 RAILWAY_EMAIL = input("Enter your Railway email: ")
@@ -19,7 +20,11 @@ def main():
     cycles = 50
     confirmation_received = False
 
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Run Chrome in headless mode (without GUI)
+    chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
+
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     driver.get("https://railway.app/login")
 
     while not confirmation_received:
